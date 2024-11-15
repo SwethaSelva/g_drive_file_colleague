@@ -1,0 +1,16 @@
+{
+  "name": "g_drive_file_combine",
+  "version": "1.0.0",
+  "description": "When we download the large file, internet break it down to folders and download it as zip. This script will combine all the folder's content into one.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "author": "S, Swetha",
+  "license": "ISC",
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "fs": "^0.0.1-security"
+  }
+}

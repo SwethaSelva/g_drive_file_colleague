@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index"
   },
-  "author": "S, Swetha",
+  "author": "Swetha Selvakumaran",
   "license": "ISC",
   "dependencies": {
     "adm-zip": "^0.5.16",

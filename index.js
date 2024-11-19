@@ -34,6 +34,16 @@ function driveCounter (numStr) {
   return '0'.repeat(remainingLength) + count;
 }
 
+function smugMugCounter (numStr) {
+  if (Number.isNaN(+numStr.at(-1))) return numStr;
+
+  let splits = numStr.split(/(\d+)/);
+  if (splits.at(-1) === '') splits.pop();
+
+  let num = splits.pop();
+  return `${splits.join('')}${+num + 1}`;
+}
+
 /**
  * Extract the zip file based on the filePath to outputPath
  * @param {path} filePath 
@@ -77,13 +87,14 @@ function main (fileName, filePath) {
   let folderPath = `${filePath}/${folderName}`;
   let curFileName = `${folderName}-${count}.zip`;
   let curFilePath = `${folderPath}/${curFileName}`;
-  
+
   // Compress the file
   do {
     compressFile(curFilePath, filePath);
 
     // Inc the count to move next file
     count = driveCounter(count);
+    // count = smugMugCounter(count);
     curFileName = `${folderName}-${count}.zip`;
     curFilePath = `${folderPath}/${curFileName}`;
   } while (fs.existsSync(curFilePath))

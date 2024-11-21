@@ -7,8 +7,8 @@ This script extracts and combines all parts into one folder—just provide the f
 ## Pseudo code
 1. The google drive downloded file format is ´´´foldername-timestamp-inc´´´
 2. extract the file name and split counter from it
-3. create a folder with timestamp. This will help us keep the folder name unique.
-4. Take a zip, decompress and push data to the folder.
+3. Take a zip, decompress and push data to the folder.
+4. Once it's done, inc the counter and move on to next file
 5. Repeat the step until all the zips are decompressed.
 
 This approach can be used for other provider called smugmug.

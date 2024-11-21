@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "adm-zip": "^0.5.16",
-    "fs": "^0.0.1-security"
+    "fs": "^0.0.1-security",
+    "node-stream-zip": "^1.15.0",
+    "unzipper": "^0.12.3"
   }
 }

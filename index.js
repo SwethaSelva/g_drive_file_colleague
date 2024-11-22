@@ -7,7 +7,7 @@ const path = require('path');
 
 const { compressFileByADM } = require('./compress_file/adm_zip');
 const { compressFileByStream } = require('./compress_file/node-stream-zip');
-const { driveCounter, smugMugCounter } = require('./counter'); // counter by vendor
+const { driveCounter, smugMugCounter } = require('./counter'); // customise counter for each vendor
 const { removeExt, splitCountFromFile, findSize } = require('./file_utils');
 const { readFolderRecurse } = require('./seggrate_meta_file');
 /**

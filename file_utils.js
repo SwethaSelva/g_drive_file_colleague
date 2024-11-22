@@ -1,4 +1,5 @@
 const fs = require('fs');
+const path = require('path');
 
 /**
  * Remove the zip extension from the file name
@@ -23,15 +24,35 @@ function splitCountFromFile(fileName) {
   return [splits.join('-'), count];
 }
 
+
+/**
+ * Return the size of the file in GB
+ * @param {String} fileName Name of the file
+ * @returns 
+ */
 function findSize (fileName) {
   let stats = fs.statSync(fileName);
-  let fileSizeInBytes = stats.size;console.log({ fileSizeInBytes });
-  // Convert the file size to gigabytes
-  return fileSizeInBytes / (1024*1024*1024);
+  let fileSizeInBytes = stats.size;
+  return fileSizeInBytes / (1024*1024*1024); // Convert to GB
+}
+
+/**
+ * Return the file name recursively in the given dir
+ * @param {path} dir 
+ * @returns file name
+ */
+function getFileRecursive(dir) {
+  let files = fs
+    .readdirSync(dir, { recursive: true, withFileTypes: true }) // withFileTypes return directen
+    .filter(item => !item.isDirectory())
+    .map(file => file.name);
+
+  return files;
 }
 
 module.exports = {
   removeExt,
   splitCountFromFile,
-  findSize
+  findSize,
+  getFileRecursive
 };

@@ -6,17 +6,16 @@ const fs = require('fs');
 const path = require('path');
 
 const { compressFileByADM } = require('./compress_file/adm_zip');
-// const { compressFileByStream } = require('./compress_file/unzipper');
 const { compressFileByStream } = require('./compress_file/node-stream-zip');
 const { driveCounter, smugMugCounter } = require('./counter'); // counter by vendor
-const { removeExt, splitCountFromFile, findSize } = require('./file_mainpulator');
-
+const { removeExt, splitCountFromFile, findSize } = require('./file_utils');
+const { readFolderRecurse } = require('./seggrate_meta_file');
 /**
  * Decompress and combine all files to the folder
  * @param {String} fileName download zip file name
  * @param {path} filePath File path
  */
-function main (fileName, filePath, vendor) {
+function mergeMultiPartZip (fileName, filePath, vendor) {
   if (!fileName) return null;
   
   // Remove extn and split the count from filename
@@ -42,6 +41,9 @@ function main (fileName, filePath, vendor) {
 }
 
 let downloadPath = '../../../Downloads';
-// main("Swetha & Deepak ( Post-Wedding )-20241111T155811Z-001", downloadPath);
-main("takeout-20241119T095214Z-001.zip", downloadPath);
-// main("album-d418375153-downloads-pt1.zip", downloadPath, "smugmug");
+// mergeMultiPartZip("Swetha & Deepak ( Post-Wedding )-20241111T155811Z-001", downloadPath);
+// mergeMultiPartZip("album-d418375153-downloads-pt1.zip", downloadPath, "smugmug");
+
+readFolderRecurse(
+  mergeMultiPartZip("takeout-20241119T095214Z-001.zip", downloadPath)
+);

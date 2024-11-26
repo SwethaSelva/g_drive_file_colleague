@@ -10,9 +10,9 @@ function compressFileByADM(filePath, outputPath) {
   try {
     const zip = new AdmZip(filePath);
     zip.extractAllTo(outputPath, true);
-    console.log(`Extraction completed for ${filePath}`);
+    console.log(`Extraction completed for ${filePath} by adm`);
   } catch (err) {
-    console.error(`Error during extraction for ${filePath}: ${err}`);
+    console.error(`ADM: Error during extraction for ${filePath}: ${err}`);
   }
 }
 

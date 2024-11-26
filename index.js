@@ -10,6 +10,7 @@ const { compressFileByStream } = require('./compress_file/node-stream-zip');
 const { driveCounter, smugMugCounter } = require('./counter'); // customise counter for each vendor
 const { removeExt, splitCountFromFile, findSize } = require('./file_utils');
 const { readFolderRecurse } = require('./seggrate_meta_file');
+
 /**
  * Decompress and combine all files to the folder
  * @param {String} fileName download zip file name
@@ -37,13 +38,12 @@ function mergeMultiPartZip (fileName, filePath, vendor) {
 
     curFileName = `${folderName}-${count}.zip`;
     curFilePath = `${filePath}/${curFileName}`;
-  } while (fs.existsSync(curFilePath))
+  } while (fs.existsSync(curFilePath));
 }
 
 let downloadPath = '../../../Downloads';
 // mergeMultiPartZip("Swetha & Deepak ( Post-Wedding )-20241111T155811Z-001", downloadPath);
 // mergeMultiPartZip("album-d418375153-downloads-pt1.zip", downloadPath, "smugmug");
 
-readFolderRecurse(
-  mergeMultiPartZip("takeout-20241119T095214Z-001.zip", downloadPath)
-);
+// Google Takeout
+mergeMultiPartZip("takeout-20241125T123611Z-001.zip", downloadPath);

@@ -8,7 +8,8 @@
 */
 
 let fs = require('fs');
-export function readFolderRecurse (folderPath) {
+
+function readFolderRecurse (folderPath) {
   try {
     const files = fs.readdirSync(folderPath, { withFileTypes: true });
     if (!files.length) return files;
@@ -42,6 +43,10 @@ export function readFolderRecurse (folderPath) {
   } catch (err) {
     console.error(err);
   }
+}
+
+module.exports = {
+  readFolderRecurse
 }
 
 let downloadPath = '../../../Downloads';

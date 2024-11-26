@@ -1,8 +1,13 @@
 {
   "name": "g_drive_file_combine",
+  "email": "swethalakshmideepak@gmail.com",
   "version": "1.0.0",
   "description": "When we download the large file, internet break it down to folders and download it as zip. This script will combine all the folder's content into one.",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SwethaSelva/google_related_scripts.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
